@@ -78,6 +78,12 @@ public class DbLayer {
 			
 		}
 	}
+	public static void createAllTables() throws ClassNotFoundException
+	{
+		createTable(CREATE_CLIENTS_TABLE);
+		createTable(CREATE_CARS_TABLE);
+		createTable(CREATE_ORDERS_TABLE);
+	}
 	public static void editClient(int id, String name, String surname, Date date ,String address,String phone,String email) throws ClassNotFoundException, SQLException
 	{
 		PreparedStatement ps=getConnection().prepareStatement(UPDATE_CAR);

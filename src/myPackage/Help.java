@@ -6,6 +6,18 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Help {
+	private static boolean tablesAreCreated=false;
+	private static Help instance;
+	private Help() throws ClassNotFoundException
+	{
+		DbLayer.createAllTables();
+		tablesAreCreated=true;
+	}
+	public static void getInstance() throws ClassNotFoundException
+	{
+		if(instance==null)
+		instance=new Help();
+	}
 	public static boolean checkClient(String name, String surname,
 			String birthDate, String phone, String address, String email) {
 		return ((name.length() == 0) || (surname.length() == 0)
@@ -31,7 +43,7 @@ public class Help {
 		return ((make.length() == 0) || (model.length() == 0)
 				||(vin.length() == 0) || validYear);
 	}
-	public static boolean checkOrder(String amount)
+	public static boolean checkOrder(String amount,String status)
 	{
 		boolean validAmount=true;
 		try{
@@ -42,7 +54,7 @@ public class Help {
 		{
 			
 		}
-		return validAmount;
+		return (validAmount||(status==null));
 	}
 	public static Date convertToDate(String dateString) {
 		String expectedPattern = "yyyy-MM-dd";

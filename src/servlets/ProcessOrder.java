@@ -33,7 +33,7 @@ public class ProcessOrder extends HttpServlet {
 		String message = "";
 		String url = "";
 		// Check
-		if (Help.checkOrder(amount)) {
+		if (Help.checkOrder(amount,status)) {
 			message = ("Something is wrong. Please check the data");
 			url = "order.jsp?id=" + id + "&date=" + date + "&amount=" + amount
 					+ "&status=" + status + "&carId=" + carId;

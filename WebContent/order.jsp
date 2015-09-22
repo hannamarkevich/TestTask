@@ -13,7 +13,9 @@
 <input type="hidden" name="id" value="<%=request.getParameter("id") %>"><br>
 Date:<%=request.getParameter("date") %><br>
 Amount:<input type="text" name="amount" value="<%=request.getParameter("amount")==null?"":request.getParameter("amount")%>"><br>
-Status:<input type="text" name="status" value="<%=request.getParameter("status")==null?"":request.getParameter("status") %>"><br>
+Status:<p><input type="radio" name="status" value="Completed"> Completed</input></p>
+<p><input type="radio" name="status" value="In Progress"> In Progress</input></p>
+<p><input type="radio" name="status" value="Cancelled"> Cancelled</input></p>
 <input type="hidden" name="carId" value="<%=request.getParameter("carId")%>"><br>
 
 <input type="submit"name="save" value="Save changes">

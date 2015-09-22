@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import myPackage.Client;
 import myPackage.DbLayer;
+import myPackage.Help;
 
 @WebServlet(name = "ClientsServlet", urlPatterns = { "/ClientsList" })
 public class ClientsServlet extends HttpServlet {
@@ -25,6 +26,12 @@ public class ClientsServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		try {
+			Help.getInstance();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		String name = request.getParameter("first_name");
 		String surname = request.getParameter("surname");
 		// Set response content type
